@@ -364,3 +364,111 @@ d1={"A":1,"B":2}
 d2={"C":3,"D":4}
 merge={**d1,**d2}
 print(merge)
+
+# tuples  similar to  list  ordeted   collection of immutable elements 
+t=()
+print(type(t))
+
+t1=[20,'hello',3.5]
+t2=tuple(t1)
+print(type(t2))
+T=(1,2,3,4,5,6,7,8,9,10)
+for index, i in enumerate(T):
+    print(index,i)
+print(T[::])
+print(T[::-1])
+print(T[5:])
+print(T[::2])
+print(T[-1:-5:-1])
+# tuple concadination 
+Tuple1=(1,2,3,4,2)
+Tuple2=("A","B","C","D")
+con=Tuple1+Tuple2
+print(con)
+#Tuple methods 
+print("2 is present ",Tuple1.count(2),"time")
+print(Tuple2.index("B"))
+# packing elements in tuple 
+pack=1,"software",2.5,True
+print(pack)
+print(type(pack))
+
+# unpacking in tuple
+a,b,c,d=pack
+print(a)
+print(b)
+print(c)
+print(d)
+#unpacking with star 
+ff=(10,20,30,40,50,607,80,89)
+first,*middle,star=ff
+print(first)
+print(middle)
+print(star)
+# nested list 
+nested_list = [
+    [1, 2, 3],
+    ["apple", "banana", "cherry"],
+    [True, False, True]
+]
+
+for item in nested_list:
+    print(item)
+    print()
+    for i in item:
+        print(i)
+
+print(nested_list[1][1]) # tp pick Banana 
+nested_tuple = (
+    (1, 2, 3),
+    ("apple", "banana", "cherry"),
+    (True, False)
+)
+
+# ACCESING Elemtents in the tuple nested tuple
+print(nested_tuple[1][2]) # to pickl cherrey
+
+# list with real word example  simple to do list 
+to_do_list=["Jokking","eating_Break_fast","postletter","paythe_bill"]
+print(to_do_list)
+# add two more task to list 
+to_do_list.append("have launch")
+print(to_do_list)
+# removeing the completed task 
+to_do_list.remove("eating_Break_fast")
+to_do_list.remove("Jokking")
+# Add remainder
+if "paythe_bill" in to_do_list:
+    print("Dont forgot to pay the Bill ")
+    to_do_list.remove("paythe_bill")
+
+#remaingn task in the list 
+
+print(to_do_list)
+
+# managing the student Grades 
+from math import* 
+grades=[85,92,75,88,95]
+
+# adding the new grade
+grades.append(70)
+print(85+92+75+88+95+70)
+# Find the average grade 
+sum_l=0 
+for g in grades:
+    sum_l+=g
+print(sum_l)
+ave_grade= sum_l /len(grades)
+print(ave_grade)
+print(min(grades),"is the minimum Grade")
+print(max(grades),"is the maximun Grade")
+
+# collecting  user Feed back
+feed_back=["Excellent","Good","Great","Average","notgood","Bad","very good","outstanding"]
+print(feed_back)
+feed_back.append("not satified with service")
+
+postive=[1 for f  in feed_back if "great" in f.lower() or "outstanding" in f.lower()]
+print("postive feed back",postive)
+negative=[1 for f in feed_back if "bad" in f.lower() or "not" in f.lower()]
+print("negative Feed back",negative)
