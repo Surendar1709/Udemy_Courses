@@ -167,11 +167,11 @@ words=["hello","hi","welcome","join","wakeup"]
 lenth=[len(w) for w in words]
 print(lenth)
 
-str="hello welcome to the pune city"
-str=str.split()
+str1="hello welcome to the pune city"
+str=str1.split()
 
-print(str[::-1])
-l=[len(word) for word in str]
+print(str1[::-1])
+l=[len(word) for word in str1]
 print(l)
 s=0
 for i in l:
@@ -621,3 +621,83 @@ def Word_Frequency(filepath):
 filepath=r"C:\Users\surendar.s\Music\python_leanring\Udemy_Courses\sample.txt"
 result=Word_Frequency(filepath)
 print(result)
+ 
+# Validated  email address  
+import re 
+def emailvalid(email):
+    pattern=r'^[A-Za-z0-9._+-]+@[a-zA-z0-9]+\.[a-zA-z0-9-.]+$'
+    return re.match(pattern,email) is not None
+print("Validationg email")
+print(emailvalid("surendarinbox@gamil.com"))
+
+print(emailvalid("ssssooy"))
+
+# lamda functin  
+"small ananomous function with the lambda keyword can  have  any no of arguments and single expressin "
+#syntax
+# lamda argurments: expression 
+additon=lambda x,y,z:x+y+z
+print(type(additon))
+print(additon(30,32,8))
+
+#map function is inbuld function that apply give function to the all the items in the iterables like list tuple 
+nums=[1,2,3,4,5]
+squere=tuple(map(lambda x:x**2,nums))
+print(squere)
+
+def square(num):
+    return num*num
+
+print(square(5))
+nums=[1,2,3,4,5,6,7,8,9,10]
+sq=tuple(map(square,nums))
+print(sq)
+
+# map with multiple iterables 
+m1=[1,2,3]
+m2=[4,5,6]
+ml=tuple(map(lambda x,y:x+y,m1,m2))
+print(ml)
+
+#conver list of string into  the num 
+
+li=["1",'2','3','4','5']
+no_list=tuple(map(int,li))
+print(no_list)
+
+# convert list to lower to upper of list of strings 
+# lower=["apple","Banana","cherry"]
+# uppper=tuple(map(str.upper(),lower))
+# print(uppper)
+def get_name(person):
+    return person["name"]
+people=[{"name":"surendar","age":30},{"name":"gokul","age":45}]
+
+nnn=tuple(map(get_name,people))
+print(nnn)
+
+# filter function  used to filter the item from the squance  with ceratin condtion 
+
+# fileter with lamda function 
+commontuple=[1,2,3,4,5,6,78,8.90,10]
+filter_list=tuple(filter(lambda x:x>5 ,commontuple))
+print("values filtered from the list",filter_list)
+
+# filter with multiple conditon 
+
+even_and_greaterthan5=tuple(filter(lambda x:x>5 and x%2==0,commontuple))
+print(even_and_greaterthan5)
+# apply filter in dict 
+people = [
+    {"name": "surendar", "age": 20},
+    {"name": "gokul", "age": 45},
+    {"name": "arun", "age": 30},
+    {"name": "meena", "age": 27},
+    {"name": "karthik", "age": 22},
+    {"name": "priya", "age": 35}
+]
+
+
+dict_filter=tuple(filter(lambda x :x["age"]>25,people))
+print(dict_filter)
+
