@@ -330,7 +330,7 @@ print(squre)
 print("Even Squre ")
 evenS={x:x**2 for x in range(10) if x%2==0}
 print(evenS)
-print("Even Squre ")
+print("odd Squre ")
 odds={x:x**2 for x in range(10) if x%2!=0}
 print(odds)
 
@@ -472,3 +472,152 @@ postive=[1 for f  in feed_back if "great" in f.lower() or "outstanding" in f.low
 print("postive feed back",postive)
 negative=[1 for f in feed_back if "bad" in f.lower() or "not" in f.lower()]
 print("negative Feed back",negative)
+
+
+# function
+"Function is the block of code  that perform the certain task  help to reuse the code organizing the code  improve the readbiltiy"
+
+# def function_name(para):
+#     "Doc string to tell the what the function is does"
+#     return statement
+
+# Basic addtion functin 
+def add(a,b):
+    c=a+b
+    return c
+
+r=add(50,30)
+print(r)
+
+# sub 
+def sub(a,b):
+    return a-b
+r=sub(20,5)
+print(r)
+# default argrment 
+
+def greet(name="Guest"):
+    print(f'hello {name} welcome the class')
+
+greet("Ramesh")
+greet()
+# postional argument 
+# keyword length postitional argument 
+def print_arg(*args):
+    for item in args:
+        print(item)
+print_arg(1,2,3,4,5,6,7,8,9,"hi","hello")
+# keyword arguemtnt 
+
+def print_details(**kwargs):
+    for key,values in kwargs.items():
+        print(f"{key}:{values}")
+print_details(name="sun",age="450",add="Galaxy center point")
+
+print("keyword and postitional argmentts")
+
+def function1(*args,**kwargs):
+    for p in args:
+        print(f"postitional args{p}")
+    for k,v in kwargs.items():
+        print(f"keywordargments   {k} : {v}")
+
+function1(1,2,3,4,5,6,7,8,9,"hi","hello",name="moon ",age="300",add="milkyway")
+
+#return,multple values in the function 
+def mul(a,b):
+    return f" mul of {a}:{b}",a*b
+result=mul(4,5)
+print(result)
+
+#simple function 
+def cover_temp(temp,unit):
+    " convert the tempearut between  celius to fraghet  "
+    if unit.lower()=="c":
+        return temp *(9/5)+32 # celcius to Framhent 
+    elif unit.lower()=="f":
+        return temp *(5/9)-32 # frament to celsis 
+    else:
+        return None
+    
+print(cover_temp(45,'F'))
+print(cover_temp(45,'c'))
+
+# password strenth checker 
+def is_strong(password):
+    if len(password)<8:
+        return False
+    elif not any( char.isdigit() for char in password):
+        return False
+    elif not any( char.islower() for char in password):
+        return False
+    elif not any(char.isupper() for char in password):
+        return False
+    elif not any(char in "!@#$%^&*()" for char in password):
+        return False
+    return True
+
+result=is_strong("Aandd$123")
+print(result)
+
+# Calcualting the total cost the item in the cart 
+
+def price_calcualte(cart):
+    total_price=0
+    for item in cart:
+        total_price+=item["price"]*item["Quantity"]
+    return total_price
+
+cart=[{"name":"Apple","price":50,"Quantity":5},
+      {"name":"Banana","price":30,"Quantity":3},
+      {"name":"Mango","price":50,"Quantity":4},
+      ]
+total=price_calcualte(cart)
+print(total)
+
+# to check pallindrom 
+
+def palindrom(var):
+    orginal=var
+    if var[::-1]!=orginal:
+        return False
+    else:
+        return True
+
+result=palindrom("aba")
+print(result)
+result=palindrom("racecars")
+print(result)
+
+
+def is_pallindorm(s):
+    s=s.lower().replace(" ","")
+    return s==s[::-1]
+    
+print(is_pallindorm("a man a plan a canal panama"))
+print(is_pallindorm("hello"))
+
+#Factroal of the no 
+
+def fact(num):
+    if num==0:
+        return 1
+    return num * fact(num-1)
+f=fact(5)
+print(f)
+
+def Word_Frequency(filepath):
+    word_f={}
+    with open(filepath,'r') as file :
+        for line in file:
+            words=line.split()
+            for word in words:
+                word=word.strip()
+                if word in word_f:
+                    word_f[word]+=1
+                else:
+                    word_f[word]=1
+        return word_f
+filepath=r"C:\Users\surendar.s\Music\python_leanring\Udemy_Courses\sample.txt"
+result=Word_Frequency(filepath)
+print(result)
